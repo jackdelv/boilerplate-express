@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require("body-parser");
 console.log("Hello World");
 //app.get("/", function(req, res) { res.send("Hello Express")})
-app.use(bodyParser.urlencoded({extended: false});
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(
 	function(req, res, next) {
 		console.log(req.method + " " + req.path + " - " + req.ip);
@@ -40,7 +40,7 @@ app.get("/:word/echo",
 )
 
 app.route("/name").get(function(req, res) {res.json({name: req.query.first + " " + req.query.last})})
-.post(bodyParser.json());
+.post(function(req, res) {res.json({name: req.body.first + " " + req.body.last})});
 
 
 
